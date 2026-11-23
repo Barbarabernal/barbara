@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JSFiddle uc3d9yaw</title>
+
+  <style>
+    
+/* ESTILO GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #111111;
+    color: white;
+}
+
+/* CABECERA */
+
+header {
+    background-color: #080808;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-bottom: 3px solid #e10600;
+}
+
+header h1 {
+    color: #e10600;
+    font-size: 30px;
+    font-style: italic;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #e10600;
+}
+
+/* PORTADA */
+
+.hero {
+    min-height: 550px;
+    background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.8)),
+    url("https://images.unsplash.com/photo-1532906619279-a4b7267faa66?w=1600");
+
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 60px;
+}
+
+.hero h2 {
+    font-size: 65px;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.boton {
+    background-color: #e10600;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.boton:hover {
+    background-color: white;
+    color: #e10600;
+    transform: scale(1.05);
+}
+
+/* SECCIONES */
+
+.seccion {
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.seccion h2 {
+    font-size: 35px;
+    color: #e10600;
+    margin-bottom: 25px;
+}
+
+.seccion p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #dddddd;
+}
+
+.imagen-principal {
+    width: 80%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 20px 0;
+}
+
+/* TARJETAS */
+
+.subtitulo {
+    margin-bottom: 35px;
+}
+
+.tarjetas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.tarjeta {
+    background-color: #202020;
+    width: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s;
+    border-bottom: 4px solid #e10600;
+}
+
+.tarjeta:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(225,6,0,0.3);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.tarjeta h3 {
+    color: #e10600;
+    margin: 20px 10px;
+    font-size: 23px;
+}
+
+.tarjeta p {
+    padding: 0 15px 20px;
+}
+
+/* CONTACTO */
+
+.contacto {
+    background-color: #1b1b1b;
+}
+
+form {
+    max-width: 550px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea {
+    padding: 15px;
+    border: 2px solid #444;
+    border-radius: 5px;
+    background-color: #101010;
+    color: white;
+    font-size: 16px;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #e10600;
+}
+
+button {
+    padding: 15px;
+    background-color: #e10600;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #aa0000;
+}
+
+/* PIE DE PAGINA */
+
+footer {
+    background-color: #080808;
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 3px solid #e10600;
+}
+
+footer h2 {
+    color: #e10600;
+    margin-bottom: 15px;
+}
+
+footer p {
+    margin: 10px;
+    color: #cccccc;
+}
+
+footer a {
+    color: white;
+    display: inline-block;
+    margin: 15px;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #e10600;
+}
+
+.copyright {
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+/* ADAPTACION A MOVILES */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 30px;
+        min-height: 450px;
+    }
+
+    .hero h2 {
+        font-size: 42px;
+    }
+
+    .seccion {
+        padding: 45px 5%;
+    }
+
+    .imagen-principal {
+        width: 100%;
+    }
+
+    .tarjeta {
+        width: 100%;
+    }
+}
+
+  </style>
+
+  
+</head>
+<body>
+  
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE F1 WORLD | Fórmula 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- CABECERA Y MENU -->
+    <header>
+        <h1>THE F1 WORLD</h1>
+
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#sobre">Sobre la F1</a>
+            <a href="#equipos">Equipos</a>
+            <a href="#pilotos">Pilotos</a>
+            <a href="#circuitos">Circuitos</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- PORTADA -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h2>VELOCIDAD.<br>ADRENALINA.<br>PASIÓN.</h2>
+                <p>Bienvenido al mundo de la Fórmula 1,
+                donde cada milésima cuenta.</p>
+                <a href="#sobre" class="boton">DESCUBRE LA F1</a>
+            </div>
+        </section>
+
+        <!-- SOBRE LA FORMULA 1 -->
+        <section id="sobre" class="seccion">
+            <h2>¿QUÉ ES LA FÓRMULA 1?</h2>
+
+            <img class="imagen-principal"
+            src="https://images.unsplash.com/photo-1532906619279-a4b7267faa66?w=1200"
+            alt="Coche de competición">
+
+            <p>
+                La Fórmula 1 es la máxima categoría del automovilismo
+                internacional. En ella compiten los mejores pilotos
+                del mundo conduciendo monoplazas de tecnología
+                avanzada capaces de alcanzar velocidades superiores
+                a los 300 km/h.
+            </p>
+
+            <p>
+                Cada temporada está formada por diferentes Grandes
+                Premios que se celebran en circuitos de todo el mundo.
+                Los pilotos y equipos luchan por conseguir el
+                Campeonato Mundial de Pilotos y de Constructores.
+            </p>
+        </section>
+
+        <!-- EQUIPOS -->
+        <section id="equipos" class="seccion">
+            <h2>LOS EQUIPOS</h2>
+            <p class="subtitulo">Las escuderías que hacen historia.</p>
+
+            <div class="tarjetas">
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=700"
+                    alt="Coche deportivo rojo">
+                    <h3>FERRARI</h3>
+                    <p>Una de las escuderías más históricas y
+                    reconocidas del automovilismo.</p>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=700"
+                    alt="Coche deportivo">
+                    <h3>MERCEDES</h3>
+                    <p>Un equipo conocido por su innovación
+                    tecnológica y sus grandes éxitos.</p>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700"
+                    alt="Coche deportivo de competición">
+                    <h3>RED BULL</h3>
+                    <p>Una escudería moderna que ha conseguido
+                    numerosos campeonatos.</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- PILOTOS -->
+        <section id="pilotos" class="seccion">
+            <h2>LOS GRANDES PILOTOS</h2>
+
+            <div class="tarjetas">
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=700"
+                    alt="Automóvil rojo">
+                    <h3>Lewis Hamilton</h3>
+                    <p>Siete veces campeón del mundo y uno de
+                    los pilotos más exitosos de la historia.</p>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=700"
+                    alt="Automóvil deportivo">
+                    <h3>Fernando Alonso</h3>
+                    <p>Piloto español y bicampeón mundial
+                    conocido por su talento y experiencia.</p>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=700"
+                    alt="Coche de carreras">
+                    <h3>Max Verstappen</h3>
+                    <p>Campeón del mundo y uno de los pilotos
+                    más destacados de su generación.</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CIRCUITOS -->
+        <section id="circuitos" class="seccion">
+            <h2>LOS CIRCUITOS MÁS FAMOSOS</h2>
+
+            <div class="tarjetas">
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=700"
+                    alt="Paisaje de Mónaco">
+                    <h3>MÓNACO</h3>
+                    <p>Un circuito urbano famoso por sus curvas
+                    estrechas y su dificultad.</p>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=700"
+                    alt="Paisaje de noche">
+                    <h3>ABU DABI</h3>
+                    <p>Una carrera espectacular que suele cerrar
+                    la temporada de Fórmula 1.</p>
+                </article>
+
+                <article class="tarjeta">
+                    <img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=700"
+                    alt="Paisaje natural">
+                    <h3>SPA-FRANCORCHAMPS</h3>
+                    <p>Un circuito legendario situado en Bélgica,
+                    conocido por sus curvas rápidas.</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CONTACTO -->
+        <section id="contacto" class="seccion contacto">
+            <h2>CONTACTA CON NOSOTROS</h2>
+            <p>¿Te gusta la Fórmula 1? ¡Cuéntanos tu opinión!</p>
+
+            <form>
+                <input type="text" placeholder="Tu nombre" required>
+
+                <input type="email" placeholder="Tu correo electrónico"
+                required>
+
+                <textarea placeholder="Escribe tu mensaje..."
+                rows="5" required></textarea>
+
+                <button type="submit">ENVIAR MENSAJE</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PAGINA -->
+    <footer>
+        <h2>THE F1 WORLD</h2>
+        <p>La pasión por la velocidad nunca termina.</p>
+        <p>Proyecto de TIC - 2º Bachillerato</p>
+        <a href="#inicio">VOLVER ARRIBA ↑</a>
+        <p class="copyright">© 2026 THE F1 WORLD</p>
+    </footer>
+
+</body>
+</html>
+<a href="#pilotos">Pilotos</a>
+<section id="pilotos">
+
+
+  <script>
+    
+  </script>
+</body>
+</html>
